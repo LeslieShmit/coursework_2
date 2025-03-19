@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 
 import requests
 
+
 class Parser(ABC):
     """Абстрактный класс для работы с API сервисом"""
 
@@ -15,8 +16,9 @@ class Parser(ABC):
         """Абстрактный метод для получения вакансий по ключевому слову"""
         pass
 
+
 class HH(Parser):
-    """Класс для работы с API hh.ru """
+    """Класс для работы с API hh.ru"""
 
     def _connect_to_api(self, keyword):
         """Приватная функция подключения к API"""

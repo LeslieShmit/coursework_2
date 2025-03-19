@@ -19,9 +19,7 @@ def interact():
         print_search_query(vacancies, keyword)
     elif choice == "2":
         print("Введите желаемое количество вакансий в топе")
-        number_of_vacancies = int(
-            input()
-        )
+        number_of_vacancies = int(input())
         vacancies = HH().load_vacancies()
         sort_vacancies_by_top_salary(vacancies, number_of_vacancies)
     elif choice == "3":

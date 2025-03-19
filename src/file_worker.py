@@ -41,9 +41,7 @@ class JSONFileWorker(FileWorker):
         vacancies.append(vacancy)
 
         with open(self._path, mode="w", encoding="utf-8") as file:
-            json.dump(
-                vacancies, file, indent=4, ensure_ascii=False
-            )
+            json.dump(vacancies, file, indent=4, ensure_ascii=False)
 
     def get_vacancy(self):
         pass
