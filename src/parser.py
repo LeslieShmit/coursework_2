@@ -20,11 +20,13 @@ class Parser(ABC):
 class HH(Parser):
     """Класс для работы с API hh.ru"""
 
+    def __init__(self):
+        self.__url = "https://api.hh.ru/vacancies"
+
     def _connect_to_api(self, keyword):
         """Приватная функция подключения к API"""
-        url = "https://api.hh.ru/vacancies"
         params = {"text": keyword, "per_page": 20}
-        response = requests.get(url, params=params)
+        response = requests.get(self.__url, params=params)
         if response.status_code != 200:
             print(f"Ошибка при обработке запроса: {response.status_code}")
             return None

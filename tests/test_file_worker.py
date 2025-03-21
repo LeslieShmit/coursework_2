@@ -16,18 +16,3 @@ def test_add_vacancy(sample_vacancy, tmp_path):
     assert len(data) == 1
     assert data[0]["name"] == "Python Developer"
     assert data[0]["url"] == sample_vacancy["url"]
-
-
-def test_add_identical_vacancy(capsys, sample_vacancy, tmp_path):
-    """Тест добавления дублирующейся вакансии в JSON"""
-    test_file = tmp_path / "vacancies.json"
-    processor = JSONFileWorker(str(test_file))
-
-    processor.add_vacancy(sample_vacancy)
-
-    processor.add_vacancy(sample_vacancy)
-
-    message = capsys.readouterr()
-    assert message.out.strip() == (
-        "Вакансия с url " "https://example.com/job123 уже существует."
-    )

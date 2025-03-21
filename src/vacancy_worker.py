@@ -14,18 +14,18 @@ class VacancyWorker:
     employer: str
 
     def __init__(self, name, url, salary, employer):
-        self.name = self._validate_name(name)
-        self.url = self._validate_url(url)
-        self.salary = self._validate_salary(salary)
-        self.employer = self._validate_employer(employer)
+        self.name = self.__validate_name(name)
+        self.url = self.__validate_url(url)
+        self.salary = self.__validate_salary(salary)
+        self.employer = self.__validate_employer(employer)
 
-    def _validate_name(self, name):
+    def __validate_name(self, name):
         """Метод для проверки того, что в name передана строка"""
         if not isinstance(name, str):
             raise ValueError("Название вакансии должно быть строкой.")
         return name
 
-    def _validate_url(self, url):
+    def __validate_url(self, url):
         """Метод для проверки корректности формата url"""
         if not isinstance(url, str) or not url.startswith("http"):
             raise ValueError(
@@ -33,13 +33,13 @@ class VacancyWorker:
             )
         return url
 
-    def _validate_salary(self, salary):
+    def __validate_salary(self, salary):
         """Метод для проверки корректности значения, переданного в salary"""
         if not isinstance(salary, (int, float)) or salary < 0:
             return 0
         return salary
 
-    def _validate_employer(self, employer):
+    def __validate_employer(self, employer):
         """Метод для проверки корректности значения, переданного в employer"""
         if not isinstance(employer, str) or not employer.strip():
             raise ValueError("Имя работодателя должно быть строкой.")
